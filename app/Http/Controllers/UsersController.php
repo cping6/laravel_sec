@@ -46,4 +46,13 @@ class UsersController extends Controller
 
 		return redirect()->route('users.show', [$user]);
     }
+
+	public function destroy()
+	{
+		Auth::logout();
+
+		session()->flash('success', '您已成功退出');
+
+		return redirect('login');
+    }
 }
