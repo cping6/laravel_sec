@@ -22,6 +22,8 @@ class UsersTableSeeder extends Seeder
 
         $user->email = 'chenchangping@foxmail.com';
 
+        $user->is_admin = true;
+
         $user->save();
     }
 }
