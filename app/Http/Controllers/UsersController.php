@@ -98,8 +98,8 @@ class UsersController extends Controller
 	{
 		$this->authorize('destroy', $user);
 		$user->delete();
-		session()->flash('sucess', '成功删除用户！');
-		return back();
+		session()->flash('success', '成功删除用户！');
+		return redirect()->back();
     }
 
 	protected function sendEmailConfirmationTo($user)
