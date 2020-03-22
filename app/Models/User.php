@@ -49,6 +49,7 @@ class User extends Authenticatable
 		return "http://www.gravatar.com/avatar/$hash?s=$size";
 	}
 
+	// 监听注册
 	public static function boot()
 	{
 		parent::boot();
@@ -58,9 +59,17 @@ class User extends Authenticatable
 		});
 	}
 
+	// 一对多关联status表
 	public function statuses()
 	{
 		return $this->hasMany(Status::class);
+	}
+
+	// 取出发布的所有微博
+	public function feed()
+	{
+		return $this->statuses()
+			->orderBy('created_at', 'desc');
 	}
 
 }
