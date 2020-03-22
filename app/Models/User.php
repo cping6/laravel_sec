@@ -58,4 +58,9 @@ class User extends Authenticatable
 		});
 	}
 
+	public function statuses()
+	{
+		return $this->belongsToMany(Status::class);
+	}
+
 }
