@@ -19,13 +19,21 @@ class UserPolicy
         //
     }
 
+    // 用户资料更新授权
 	public function update(User $currentUser, User $user)
 	{
 		return $currentUser->id === $user->id;
     }
 
+    // 用户删除授权
 	public function destroy(User $currentUser, User $user)
 	{
 		return $currentUser->is_admin && $currentUser->id !== $user->id;
     }
+
+    // 关注授权
+	public function follow(User $currentUser, User $user)
+	{
+		return $currentUser->id !== $user->id;
+	}
 }

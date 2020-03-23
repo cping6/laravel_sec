@@ -107,7 +107,7 @@ class User extends Authenticatable
 			$user_ids = compact('user_ids');
 		}
 
-		$this->followings()->deatch($user_ids);
+		$this->followings()->detach($user_ids);
 	}
 
 	// TODO 判断是否关注 待理解
